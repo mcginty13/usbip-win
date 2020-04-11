@@ -1,0 +1,36 @@
+﻿<Window x:Class="usbip_gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:usbip_gui"
+        mc:Ignorable="d"
+        Title="USBIP" Height="450" Width="862.524">
+
+    <Grid>
+        <TextBox x:Name="TB_ServerIP" HorizontalAlignment="Left" Height="23" Margin="30,46,0,0" TextWrapping="Wrap" Text="192.168.0.41" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Btn_GetBoundDevices" Content="Get bound devices" HorizontalAlignment="Left" Margin="174,49,0,0" VerticalAlignment="Top" Width="128" Click="Btn_GetBoundDevices_Click"/>
+        <DataGrid x:Name="dataGrid1"  AutoGenerateColumns="False"  HorizontalAlignment="Left" Height="117" Margin="30,98,0,0" VerticalAlignment="Top" Width="806">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Device Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Device Bound" Binding="{Binding Bound}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Remote Bus ID" Binding="{Binding BusId}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Remote IP" Binding="{Binding IpAddress}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Attached" Binding="{Binding Attached}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Attach/Detach">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Btn_ChangeDeviceBindStatus" Click="Btn_ChangeDeviceBindStatus_Click">Attach</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="TB_Output" HorizontalAlignment="Left" Height="154" Margin="56,241,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="634" VerticalScrollBarVisibility="Auto"/>
+        <Button x:Name="Btn_GetUnboundDevices" Content="Get unbound devices" HorizontalAlignment="Left" Margin="322,49,0,0" VerticalAlignment="Top" Width="128" Click="Btn_GetUnboundDevices_Click"/>
+        <Button x:Name="Btn_GetRemoteDevices"  Content="Get Remote Devices" HorizontalAlignment="Left" Margin="486,49,0,0" VerticalAlignment="Top" Width="125" Click="Btn_GetRemoteDevices_Click"/>
+    </Grid>
+
+</Window>
